@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.10)
+project(ntldd)
+add_executable(ntldd ntldd.c libntldd.c)
+target_link_libraries(ntldd PRIVATE imagehlp)
+if(NOT WIN32)
+    message(FATAL_ERROR "This is a win32 only application")
+endif()
